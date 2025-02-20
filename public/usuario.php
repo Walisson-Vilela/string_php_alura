@@ -1,10 +1,16 @@
 <?php
+$email = 'vinícius@alura.com.br';
+$senha = 'áéíóú';
 
-$email = 'walisson@mundowap.com.br';
+echo mb_strlen($senha) . PHP_EOL;
 
-$posicao = strpos($email, '@');
+if (mb_strlen($senha) < 8) {
+    echo 'Senha insergura' . PHP_EOL;
+}
 
-//Para buscar uma string em especifico de uma string
+$posicaoDoArroba = strpos($email, '@');
 
-echo substr($email,0, 8) . PHP_EOL;
-echo substr($email, $posicao ) . PHP_EOL;
+$usuario = substr($email, 0, $posicaoDoArroba);
+
+echo mb_strtoupper($usuario) . PHP_EOL;
+echo substr($email, $posicaoDoArroba + 1) . PHP_EOL;
